@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Roy Norton: Crystals Collector Game</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./assets/javascript/game.js"></script>
+</head>
+
+<body class="bg-dark">
+    <div class="wrap">
+        <div class="jumbotron-fluid bg-dark text-white">
+            <h1 class="text-center font-weight-bold">
+                CRYSTAL COLLECTORS GAME
+            </h1>
+            <div class="container-fluid">
+                <p class="lead text-center mt-5">
+                    In this game, you will be given a random number at the start of the game. There are four crystals below. By clicking on a
+                    crystal you will add a specific amount of points to your total score. You win the game by matching your
+                    total score to random number, you lose the game if your score goes above the random number. The value
+                    of each crystal is hidden from you until you click on it. Each time when the game starts, the game will
+                    change the values of each crystal.
+                </p>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div id="number-to-match">Number to Match</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 mt-3 mb-3">
+                        <div id="multiPurposeText" class="text-center"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3">
+
+                    </div>
+                    <div class="col-md-12">
+                        <div id="crystals">
+                            <img src="./assets/images/j1.png" class="img-fluid" alt="J1" width="200px" height="200px" />
+                            <img src="./assets/images/j2.png" class="img-fluid" alt="J1" width="200px" height="200px" />
+                            <img src="./assets/images/j3.png" class="img-fluid" alt="J1" width="200px" height="200px" />
+                            <img src="./assets/images/j4.png" class="img-fluid" alt="J1" width="200px" height="200px" />
+                        </div>
+                        <div id="totalScore"></div>
+                    </div>
+
+                    <div class="col-md-12 footer bg-dark text-center text-primary">
+                        <span>© 2017: Roy Norton</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
