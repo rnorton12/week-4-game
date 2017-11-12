@@ -12,50 +12,57 @@
     <script type="text/javascript" src="./assets/javascript/game.js"></script>
 </head>
 
-<body class="bg-dark">
+<body class="bg-light">
     <div class="wrap">
-        <div class="jumbotron-fluid bg-dark text-white">
+        <div class="jumbotron-fluid bg-light text-danger">
             <h1 class="text-center font-weight-bold">
                 CRYSTAL COLLECTORS GAME
             </h1>
             <div class="container-fluid">
-                <p class="lead text-left mt-5">
-                    In this game, you will be given a random number at the start of the game. There are four crystals below. By clicking on a
-                    crystal you will add a specific amount of points to your total score. You win the game by matching your
-                    total score to random number, you lose the game if your score goes above the random number. The value
-                    of each crystal is hidden from you until you click on it. Each time when the game starts, the game will
-                    change the values of each crystal.
+                <p class="text-left mt-3 text-dark">
+                    In this game, you will be given a random number <b>Number to Match</b> at the start of the game. There are four crystals below. 
+                    By clicking on a crystal, you will add a specific amount of points to <b>Your Total Score</b>. You win the game
+                    by matching <b>Your Total Score</b> to the <b>Number to Match</b>.  You lose the game if <b>Your Total Score</b> is
+                    greater than the <b>Number to Match</b>. The value of each crystal is hidden from you until you click on it.
+                    When a new game starts, a new <b>Number to Match</b> and a new value for each crystal is generated.
                 </p>
                 <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div id="number-to-match">Number to Match</div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12 mt-3 mb-3">
-                        <div id="multiPurposeText" class="text-center"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-3">
-
-                    </div>
-                    <div class="col-md-12">
-                        <div id="crystals">
-                            <img src="./assets/images/gem1.jpg" class="img-fluid" alt="J1" width="100px" height="100px" />
-                            <img src="./assets/images/gem2.jpg" class="img-fluid" alt="J2" width="100px" height="100px" />
-                            <img src="./assets/images/gem3.jpg" class="img-fluid" alt="J3" width="100px" height="100px" />
-                            <img src="./assets/images/gem4.jpg" class="img-fluid" alt="J4" width="100px" height="100px" />
+                    <div class="col-md-2 text-center bg-light text-dark"></div>
+                    <div class="col-md-2 text-center bg-primary text-light my-2 py-3">
+                        <div>Number to Match:
+                            <div id="number-to-match"></div>
                         </div>
-                        <div id="totalScore"></div>
+                    </div>
+                    <div class="col-md-1 text-center bg-light text-dark"></div>
+                    <div class="col-md-2 text-center bg-primary text-light my-2 py-3">
+                        <div>Your Total Score:
+                            <div id="total-score"></div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-1 text-center bg-light text-dark"></div>
+                    <div class="col-md-2 text-center bg-primary text-light my-2 py-3">
+                        <div>Wins:
+                            <span id="wins"></span>
+                        </div>
+                        <div>Losses:
+                            <span id="losses"></span>
+                        </div>
+                        <div>Button Clicks:
+                            <span id="button-clicks"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <br>
+                <div class="row">
+                    <div class="col-md-12 bg-light text-center text-info font-weight-bold my-2">
+                        <div>Click on a Crystal to increase Your Total Score</div>
+                        <div id="crystals"></div>
                     </div>
 
-                    <div class="col-md-12 footer bg-dark text-center text-primary">
+                    <div class="col-md-12 footer bg-light text-center text-muted">
                         <span>© 2017: Roy Norton</span>
                     </div>
                 </div>
