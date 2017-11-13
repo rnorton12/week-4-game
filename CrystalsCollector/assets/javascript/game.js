@@ -25,8 +25,6 @@
 
 // =======================================================================================
 
-// psuedo code
-
 var targetNumRange = [19, 120];
 var crystalNumRange = [1, 12];
 var targetNum = 0;
