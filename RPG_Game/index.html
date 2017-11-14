@@ -2,7 +2,9 @@
 <html>
 
 <head>
-    <title>Roy Norton: Crystals Collector Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Roy Norton: Looney Tunes RPG</title>
 
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
@@ -12,59 +14,74 @@
     <script type="text/javascript" src="./assets/javascript/game.js"></script>
 </head>
 
-<body class="bg-light">
-    <div class="wrap">
-        <div class="jumbotron-fluid bg-light text-danger">
-            <h1 class="text-center font-weight-bold">
-                RPG GAME
-            </h1>
-            <div class="container-fluid">
-                <p class="text-left mt-3 text-dark">
-                </p>
-                <div class="row">
-                    <div class="col-md-2 text-center bg-light text-dark"></div>
-                    <div class="col-md-2 text-center bg-primary text-light my-2 py-3">
-                        
+<body>
+    <div class="wrap bg-success">
+
+        <h1 class="text-center bg-primary font-weight-bold text-white py-4">
+            LOONEY TUNES RPG!
+        </h1>
+        <div class="container-fluid">
+            <br>
+            <!-- the character available will go into this row -->
+            <div class="row">
+                <div class="col-md-12 bg-muted text-center my-2">
+                    <div id="restart-game"></div>
+                    <div>
+                        <span id="characters-available" class="text-dark bg-primary font-weight-bold"></span>
                     </div>
-                    <div class="col-md-1 text-center bg-light text-dark"></div>
-                    <div class="col-md-2 text-center bg-primary text-light my-2 py-3">
-                        
-                    </div>
-                    <div class="col-md-1 text-center bg-light text-dark"></div>
-                    <div class="col-md-2 text-center bg-primary text-light my-2 py-3">
-                        
-                    </div>
+                    <div id="characters-area"></div>
                 </div>
             </div>
-            <div class="container-fluid">
-                <br>
-                <div class="row">
-                    <div class="col-md-12 bg-light text-center text-info font-weight-bold my-2">
-                        <div>Available Characters</div>
-                        <div id="characters"></div>
 
-                        <div>Your Character</div>
-                        <div id="your-character"></div>
-                        <div id="attack-power"></div>
-
-                        <div>Enemies Available to Attack</div>
-                        <div id="enemies"></div>
-
-                        <div>Defender</div>
-                        <div id="defender"></div>
-                        <div id="counter-attack-power"></div>
-
-                        <button type="button" class="btn btn-danger attack">Attack</button>
+            <!-- the enemies availabe will go into this row -->
+            <div class="row">
+                <div class="col-md-12 bg-muted text-center">
+                    <div>
+                        <span id="enemies-available" class="text-dark bg-danger font-weight-bold"></span>
                     </div>
+                    <div id="enemies-area"></div>
+                </div>
+            </div>
 
-                    <div class="col-md-12 footer bg-light text-center text-muted">
-                        <span>© 2017: Roy Norton</span>
+            <!-- the attacker (your character) and defender will go into this row -->
+            <div class="row">
+                <div class="col-md-4 bg-muted text-center">
+                    <div>
+                        <span id="selected-character" class="text-dark bg-success font-weight-bold"></span>
+                    </div>
+                    <div id="selected-character-area"></div>
+                </div>
+                <div class="col-md-4 bg-muted text-center">
+                    <div class="row">
+                        <div class="col-md-12 bg-muted text-center">
+                            <button type="button" class="btn btn-danger attack">Attack</button>
+                            <button type="button" class="btn btn-danger restart">Restart</button>
+                            <div>
+                                <span id="defender-damage-to-attacker" class="text-dark bg-primary font-weight-bold"></span>
+                            </div>
+                            <div>
+                                <span id="attacker-damage-to-defender" class="text-dark bg-primary font-weight-bold"></span>
+                            </div>
+                            <div>
+                                <span id="multi-purpose-text" class="text-dark bg-primary font-weight-bold"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-4 bg-muted text-center">
+                    <div>
+                        <span id="defender" class="text-dark bg-warning font-weight-bold"></span>
+                    </div>
+                    <div id="defender-area"></div>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md-12 footer bg-muted text-center text-muted">
+                    <span>© 2017: Roy Norton</span>
+                </div>
             </div>
         </div>
-
     </div>
 
 </body>
