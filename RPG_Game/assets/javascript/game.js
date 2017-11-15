@@ -6,7 +6,7 @@ var yourCharacter = 2;
 var enemyCharacter = 3;
 var defenderCharacter = 4;
 
-// keep track if games is over and user has to restart game
+// keep track if game is over, if so then user has to restart game
 var isGameOver = false;
 
 // contains the properties for each character.
@@ -98,6 +98,48 @@ var characterObject = {
             width: "75px",
             height: "75px"
         }
+    },
+    character_five: {
+        characterType: genericCharacter,
+        id: "button-5",
+        class: "character-button btn btn-light border border-dark",
+        type: "button",
+        name: "road runner",
+        sound: new Audio("./assets/sounds/Road Runner   Beep   Beep.mp3"), // buffers automatically when created
+        powers: {
+            health_points: 155,
+            attack_power: 7,
+            counter_attack_power: 11
+        },
+        image: {
+            id: "image-5",
+            source: "./assets/images/ico-road-runner.jpg",
+            class: "img-thumbnail",
+            alt: "road runner",
+            width: "75px",
+            height: "75px"
+        }
+    },
+    character_six: {
+        characterType: genericCharacter,
+        id: "button-6",
+        class: "character-button btn btn-light border border-dark",
+        type: "button",
+        name: "coyote",
+        sound: new Audio("./assets/sounds/Wile E Coyote Fall.mp3"), // buffers automatically when created
+        powers: {
+            health_points: 130,
+            attack_power: 3,
+            counter_attack_power: 17
+        },
+        image: {
+            id: "image-6",
+            source: "./assets/images/ico-wile-coyote.jpg",
+            class: "img-thumbnail",
+            alt: "coyote",
+            width: "75px",
+            height: "75px"
+        }
     }
 } // end var characterObject
 
@@ -106,7 +148,9 @@ var characterItems = [
     characterObject.character_one,
     characterObject.character_two,
     characterObject.character_three,
-    characterObject.character_four
+    characterObject.character_four,
+    characterObject.character_five,
+    characterObject.character_six
 ];
 
 // keeps track of the number of enemies left to fight
@@ -160,7 +204,7 @@ $(document).ready(function () {
             figCaptionBottom.addClass("figure-caption");
             figCaptionBottom.html(characterItems[i].powers.health_points);
 
-            // Add and image to the button element
+            // Add an image to the button element
             var image = $("<img>"); //Equivalent: $(document.createElement('img'))
             image.attr("id", characterItems[i].image.id); // set the image id
             image.addClass(characterItems[i].image.class); // set the class  
@@ -168,7 +212,9 @@ $(document).ready(function () {
             image.attr("alt", characterItems[i].image.alt); // set the "alt" attribute
 
             // had to define the width and height attributes this way because .animate()
-            // would change them into an inline block
+            // would change them into an inline block.
+            // note this was carried over from the crystal game. not using .animate()
+            // for this game. I'm retaining it just in case later I want to animate.
             var tempStr = "display: inline-block; width: " +
                 characterItems[i].image.width + "; height: " +
                 characterItems[i].image.height + ";"
@@ -195,26 +241,40 @@ $(document).ready(function () {
         }
     } // end function generateCharacters()
 
-    // When user selects their character (the attacker) it will be removed from the
-    // available characters area and place into the "your character area".  All other
-    // characters will be removed from the available characters area and placed into the
+    // When user selects their character (the attacker) it will be removed (detached) from the
+    // available characters area and placed into the "your character area".  All other
+    // characters will be removed (detached) from the available characters area and placed into the
     // enemy area.  The user will then need to select a character from the enemy area to become
-    // the defender.  That selected character will be removed from the enemy area and placed
+    // the defender.  That selected character will be removed (detached) from the enemy area and placed
     // into the defender area.
     function updateCharacterType(selectedCharacter) {
         var tempObj = null; // temporary jQuery object
 
+        if ((defenderObject.id.length === 0)) {
+            // clear html text
+            $("#multi-purpose-text").html("");
+            $("#attacker-damage-to-defender").html("");
+            $("#defender-damage-to-attacker").html("");
+        }
+
+        // if the selected character is generic, then it needs to be
+        // elevated to "your character", the attacker
         if (selectedCharacter.characterType === genericCharacter) {
 
             // change character types
             for (var i = 0; i < characterItems.length; i++) {
                 if (selectedCharacter === characterItems[i]) {
 
-                    // change selected character type to your character
+                    // change selected character type to "your character".
                     // this will be the attacker
                     characterItems[i].characterType = yourCharacter;
 
-                    // move the selected character to the "#your-character" div
+                    // move the selected character to the "#selected-character-area" div
+                    // note: The .detach() method is the same as .remove(), except that
+                    // .detach() keeps all jQuery data associated with the removed elements.
+                    // This method is useful when removed elements are to be reinserted into the DOM at a later time.
+                    // .detach() returns a jQuery object that contains a collection of Document Object Model (DOM) 
+                    // elements that have been created from an HTML string or selected from a document.
                     tempObj = $("#" + characterItems[i].id).detach();
                     tempObj.appendTo("#selected-character-area");
 
@@ -295,35 +355,31 @@ $(document).ready(function () {
     // this functions will execute first time page is loaded
     generateCharacters();
 
+    // ===============================
     // button handlers
-    // on click handler for character one
-    $("#" + characterItems[0].id).on("click", function () {
-        characterItems[0].sound.play();
-        updateCharacterType(characterItems[0]);
+    // ===============================
+    $(".character-button").on("click", function () {
+        // get the id of the element that was clicked
+        var id = ($(this).attr("id"));
+        console.log("my ids = " + id);
+
+        for (var i = 0; i < characterItems.length; i++) {
+            // find a character match for this event
+            if (id === characterItems[i].id) {
+                // play character sound
+                characterItems[i].sound.play();
+
+                // update the character type to
+                // "your character (attacker)" or defender
+                updateCharacterType(characterItems[i]); 
+            }
+        }
     });
-
-    // on click handler for character two
-    $("#" + characterItems[1].id).on("click", function () {
-        characterItems[1].sound.play();
-        updateCharacterType(characterItems[1]);
-    });
-
-    // on click handler for character three
-    $("#" + characterItems[2].id).on("click", function () {
-        characterItems[2].sound.play();
-        updateCharacterType(characterItems[2]);
-
-    });
-
-    // on click handler for character four
-    $("#" + characterItems[3].id).on("click", function () {
-        characterItems[3].sound.play();
-        updateCharacterType(characterItems[3]);
-    });
-
+ 
     // on click handler for the attack button
     $(".attack").on("click", function () {
 
+        // clear html text
         $("multi-purpose-text").html("");
 
         if (isGameOver) {
