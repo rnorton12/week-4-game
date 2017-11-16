@@ -182,10 +182,6 @@ $(document).ready(function () {
         // update the the losses
         $("#losses").text(losses);
         console.log("losses = " + losses);
-
-        // update the number of button clicks
-        $("#button-clicks").text(buttonClicks);
-        console.log("button clicks = " + buttonClicks);
     }
 
     // start new Game
