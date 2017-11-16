@@ -104,7 +104,7 @@ var characterObject = {
         id: "button-5",
         class: "character-button btn btn-light border border-dark",
         type: "button",
-        name: "road runner",
+        name: "Road Runner",
         sound: new Audio("./assets/sounds/Road Runner   Beep   Beep.mp3"), // buffers automatically when created
         powers: {
             health_points: 155,
@@ -125,7 +125,7 @@ var characterObject = {
         id: "button-6",
         class: "character-button btn btn-light border border-dark",
         type: "button",
-        name: "coyote",
+        name: "Coyote",
         sound: new Audio("./assets/sounds/Wile E Coyote Fall.mp3"), // buffers automatically when created
         powers: {
             health_points: 130,
