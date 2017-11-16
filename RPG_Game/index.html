@@ -7,10 +7,14 @@
     <title>Roy Norton: Looney Tunes RPG</title>
 
     <!-- Bootstrap CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./assets/javascript/game.js"></script>
 </head>
 
@@ -63,8 +67,12 @@
                                 <span id="multi-purpose-text" class="badge badge-light font-italic p-2 my-2"></span>
                             </div>
                             <div class="my-4">
-                                <button type="button" class="btn btn-danger attack">Attack</button>
-                                <button type="button" class="btn btn-danger restart bg-secondary">Restart</button>
+                                <button type="button" class="btn btn-danger attack">
+                                    Attack
+                                </button>
+                                <button type="button" class="btn btn-danger restart bg-secondary">
+                                    Restart
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -74,6 +82,23 @@
                         <span id="defender" class="badge badge-warning font-italic p-2 my-2"></span>
                     </div>
                     <div id="defender-area"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-info mb-2" data-toggle="collapse" data-target="#help">Help</button>
+                    <div id="help" class="collapse bg-dark text-light text-left p-4">
+                        When the game starts, select one of the available characters by clicking on the character's picture. This character will
+                        become "Your Character", the attacker for the rest of the game. The remaining characters will be
+                        moved to an enemies area. Select an enemy character to fight. The selected character will move to
+                        a "Defenders" area. Click the attack button to have your character attack the defender. The defender
+                        will automatically counter attack. The attacking character will inflict damage to the defender's
+                        health points. In turn, the defender will inflict damage to the attacker's health points with a counter
+                        attack. The health points of each character are displayed below the character's picture. The objective
+                        of the game is to reduce the defender's health points to zero or below. After a defender is defeated,
+                        choose another character from the ememies area. The game is over if all enemies or your character
+                        is defeated.
+                    </div>
                 </div>
             </div>
 
