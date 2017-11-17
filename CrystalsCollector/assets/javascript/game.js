@@ -28,12 +28,10 @@
 var targetNumRange = [19, 120];
 var crystalNumRange = [1, 12];
 var targetNum = 0;
-var numCrystals = 4;
 var crystalNums = []; // random number for each crystal
 var totalScore = 0;
 var wins = 0;
 var losses = 0;
-var buttonClicks = 0;
 
 var crystalObjects = {
     crystalOne: {
@@ -187,7 +185,6 @@ $(document).ready(function () {
     // start new Game
     function startNewGame() {
         totalScore = 0;
-        buttonClicks = 0;
         generateNumberToGuess();
         updateCrystalValues();
         updateStatistics();
@@ -229,8 +226,6 @@ $(document).ready(function () {
     // The click event applies to each crystal on the page. Not just one.
     $(".crystal-button").on("click", function () {
 
-        buttonClicks++; // increment button clicks by 1
-
         // Determining the crystal's value requires us to extract the value from the value attribute.
         // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
         // Using the .attr("value") allows us to grab the attribute value.
@@ -256,43 +251,23 @@ $(document).ready(function () {
         updateStatistics();
     });
 
-    // define a mouse enter event for crystal 1
-    $("#" + crystalItems[0].id).mouseenter(function () {
-        expandCrystalImage(crystalItems[0].image);
+    // define a mouse enter event for the crystal
+    $(".crystal-button").mouseenter(function () {
+        var id = ($(this).attr("id"));
+        for (var i = 0; i < crystalItems.length; i++) {
+            if (crystalItems[i].id === id) {
+                expandCrystalImage(crystalItems[i].image);
+            }
+        }
     });
 
-    // define a mouse leave event for crystal 1
+    // define a mouse leave event for the crystal
     $("#" + crystalItems[0].id).mouseleave(function () {
-        restoreCrystalImage(crystalItems[0].image);
-    });
-
-     // define a mouse enter event for crystal 2
-     $("#" + crystalItems[1].id).mouseenter(function () {
-        expandCrystalImage(crystalItems[1].image);
-    });
-
-    // define a mouse leave event for crystal 2
-    $("#" + crystalItems[1].id).mouseleave(function () {
-        restoreCrystalImage(crystalItems[1].image);
-    });
-
-     // define a mouse enter event for crystal 3
-     $("#" + crystalItems[2].id).mouseenter(function () {
-        expandCrystalImage(crystalItems[2].image);
-    });
-
-    // define a mouse leave event for crystal 3
-    $("#" + crystalItems[2].id).mouseleave(function () {
-        restoreCrystalImage(crystalItems[2].image);
-    });
-
-     // define a mouse enter event for crystal 4
-     $("#" + crystalItems[3].id).mouseenter(function () {
-        expandCrystalImage(crystalItems[3].image);
-    });
-
-    // define a mouse leave event for crystal 4
-    $("#" + crystalItems[3].id).mouseleave(function () {
-        restoreCrystalImage(crystalItems[3].image);
+        var id = ($(this).attr("id"));
+        for (var i = 0; i < crystalItems.length; i++) {
+            if (crystalItems[i].id === id) {
+                restoreCrystalImage(crystalItems[i].image);
+            }
+        }
     });
 }); // $(document).ready(function()
