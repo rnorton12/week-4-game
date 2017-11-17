@@ -262,7 +262,7 @@ $(document).ready(function () {
     });
 
     // define a mouse leave event for the crystal
-    $("#" + crystalItems[0].id).mouseleave(function () {
+    $(".crystal-button").mouseleave(function () {
         var id = ($(this).attr("id"));
         for (var i = 0; i < crystalItems.length; i++) {
             if (crystalItems[i].id === id) {
